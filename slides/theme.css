@@ -1,0 +1,271 @@
+/* PyData Helsinki – Reveal.js theme
+   Save as pydata-helsinki-reveal.css and load after reveal.css
+   Example:
+   <link rel="stylesheet" href="reveal.js/dist/reveal.css">
+   <link rel="stylesheet" href="pydata-helsinki-reveal.css">
+*/
+
+:root {
+  /* Brand palette (light) */
+  --primary-color: #398BAB;
+  --secondary-color: #E87C32;
+  --text-color: #333333;
+  --secondary-text-color: color-mix(in srgb, var(--text-color) 60%, var(--secondary-color) 40%);
+  --background-color: #f9f9f9;
+  --muted-bg: #f2f5f7;
+  --surface: #ffffff;
+  --code-bg: #f3f6f8;
+  --code-border: #e0e6ea;
+  --link-color: var(--primary-color);
+  --selection-bg: color-mix(in oklab, var(--primary-color) 20%, white);
+  --shadow-color: 0 6px 24px rgba(0,0,0,.06);
+
+  --font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #5aadcc;
+    --secondary-color: #ff9d5c;
+    --text-color: #e0e0e0;
+    --secondary-text-color: color-mix(in srgb, var(--text-color) 60%, var(--secondary-color) 40%);
+    --background-color: #121212;
+    --muted-bg: #17191b;
+    --surface: #161819;
+    --code-bg: #0f1113;
+    --code-border: #2a2e32;
+    --link-color: var(--primary-color);
+    --selection-bg: color-mix(in oklab, var(--primary-color) 25%, black);
+    --shadow-color: 0 8px 28px rgba(0,0,0,.35);
+  }
+}
+*/
+
+/* Base Reveal hooks */
+.reveal {
+  color: var(--text-color);
+  background: var(--background-color);
+  font-family: var(--font-family);
+  font-weight: 450;
+  font-size: 36px; /* Reveal scales from this */
+}
+
+.reveal ::selection { background: var(--selection-bg); }
+
+/* Slides container */
+.reveal .slides {
+  text-wrap: balance;
+}
+
+/* Headings */
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+  color: var(--primary-color);
+  line-height: 1.15;
+  margin: 0 0 .6em 0;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.reveal h1 {
+  font-size: 1.9em; /* ~68px at base 36 */
+  border-bottom: 6px solid var(--secondary-color);
+  padding-bottom: .25em;
+}
+
+.reveal h2 { font-size: 1.35em; }
+.reveal h3 { font-size: 1.05em; }
+.reveal h4 { font-size: .95em; }
+
+/* Paragraphs & Lists */
+.reveal p, .reveal ul, .reveal ol { margin: 0 0 .9em 0; }
+.reveal ul, .reveal ol { padding-left: 1.1em; }
+.reveal li { margin: .3em 0; }
+
+/* Links */
+.reveal a { color: var(--link-color); text-decoration: none; }
+.reveal a:hover { text-decoration: underline; }
+
+/* Emphasis */
+.reveal strong { color: var(--secondary-color); }
+
+/* Blockquotes */
+.reveal blockquote {
+  background: var(--muted-bg);
+  border-left: 6px solid var(--secondary-color);
+  padding: .6em .8em;
+  box-shadow: var(--shadow-color);
+}
+
+/* Code */
+.reveal pre, .reveal code, .reveal kbd, .reveal samp { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+.reveal pre code { white-space: pre-wrap; }
+
+.reveal pre {
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  border-radius: 12px;
+  padding: .8em 1em;
+  box-shadow: var(--shadow-color);
+}
+
+.reveal code { background: color-mix(in srgb, var(--code-bg) 85%, transparent); padding: 0 .2em; border-radius: .25em; }
+
+/* Tables */
+.reveal table { border-collapse: collapse; width: 100%; font-size: .8em; }
+.reveal th, .reveal td { border: none; padding: .5em .6em; }
+.reveal th { background: var(--muted-bg); color: var(--text-color); }
+
+/* Images */
+.reveal section img { border-radius: 14px; box-shadow: var(--shadow-color); }
+
+/* Fragments: use accent color for emphasis */
+.reveal .fragment.highlight-current-red, /* fallback names */
+.reveal .fragment.highlight-current { color: var(--secondary-color); }
+
+/* Navigation controls */
+.reveal .controls {
+  color: var(--primary-color);
+}
+
+/* Progress bar */
+.reveal .progress {
+  background: color-mix(in oklab, var(--primary-color) 12%, transparent);
+  height: 6px;
+}
+.reveal .progress span { background: var(--secondary-color); }
+
+/* Slide backgrounds */
+.reveal .slide-background { background: var(--background-color); }
+
+/* Speaker notes */
+.reveal .speaker-notes, .reveal .speaker-controls-notes { font-size: 16px; }
+
+/* Title slide helper (apply class="title-slide" to a section) */
+.reveal section.title-slide h1 { font-size: 2.2em; }
+.reveal section.title-slide h2 { font-size: 1.2em; color: var(--secondary-text-color); margin-top: .3em; }
+
+/* Agenda slide - smaller font size */
+.reveal section.agenda-slide {
+  font-size: 0.7em;
+  text-align: left;
+
+  p, div {
+    font-size: 1em;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 3em;
+  }
+
+  .emoji {
+    font-size: 1.1em;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5), 0 0 2px rgba(0,0,0,0.5), -2px -2px 2px rgba(0,0,0,0.5);
+  }
+
+}
+
+.reveal section.calendar-slide {
+  table tr > td:first-child {
+    min-width: 5em;
+  }
+  tr, th, td {
+    border: none;
+  }
+}
+
+/* Callouts */
+.reveal .callout {
+  background: var(--surface);
+  border: 2px solid var(--secondary-color);
+  border-radius: 18px;
+  padding: .9em;
+  margin: .5em;
+  box-shadow: var(--shadow-color);
+
+  & > p { margin: 0; }
+}
+
+/* Badges / Pills */
+.reveal .badge {
+  display: inline-block;
+  font-size: .7em;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: .3em .6em;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--secondary-color) 10%, transparent);
+  color: var(--secondary-color);
+  border: 1px solid color-mix(in srgb, var(--secondary-color) 45%, transparent);
+}
+
+/* Inline helper for secondary text tone */
+.reveal .muted { color: var(--secondary-text-color); }
+
+/* Captions */
+.reveal figcaption { color: var(--secondary-text-color); font-size: .55em; margin-top: .4em; }
+
+/* Title slide layout */
+.reveal section.title-slide {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: .75em;
+  align-content: center;
+}
+
+/* Title stack */
+.reveal section.title-slide h1 {
+  font-size: 2.2em;
+  margin: .1em 0 .2em 0;
+  border-bottom: 6px solid var(--secondary-color);
+  padding-bottom: .15em;
+}
+.reveal section.title-slide h2 {
+  font-size: 1.2em;
+  color: var(--secondary-text-color);
+  margin-top: .25em;
+}
+.reveal section.title-slide .kicker {
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .55em;
+  color: var(--secondary-color);
+}
+
+.reveal img.logo {
+  box-shadow: none;
+}
+
+.reveal .img-wrapper {
+  display: inline-block;
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  margin-left: 2em;
+
+  & > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  &.big {
+    width: 4.5em;
+    height: 4.5em;
+  }
+}
+
+.reveal img.qr {
+  image-rendering: pixelated;
+}
+
+.reveal table img.qr {
+  vertical-align: top;
+  margin: 5px;
+}

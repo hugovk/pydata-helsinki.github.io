@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>2025-12-reaktor</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@5/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="pydata-helsinki" class="slide level1 title-slide">
+<h1 class="title-slide">PyData Helsinki</h1>
+<h2 id="at-reaktor-2025-12-02">with Reaktor, 2025-12-02</h2>
+<div class="kicker">
+<p>deck the halls with offer letters</p>
+</div>
+</section>
+<section id="tonights-sponsor" class="slide level1">
+<h1>Tonight's sponsor</h1>
+<h2>
+<svg width="100%" height="100%" viewBox="0 0 1250 263" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+<g>
+<path d="M87.756,44.387c31.293,0 45.41,10.889 45.41,35.036c0,24.322 -14.117,35.036 -45.41,35.036l-33.334,0l0,-70.072l33.334,-0Zm-87.756,-44.387l0,255.613l54.422,0l0,-96.429l31.463,0l64.457,96.429l60.375,0l-69.902,-107.142c30.445,-11.053 48.638,-37.586 48.638,-71.428c0,-50.51 -32.65,-77.042 -94.557,-77.042l-94.896,0Z"/>
+<path d="M300.848,105.786c21.433,0 37.246,15.644 38.779,38.094l-81.124,0c3.234,-19.217 17.351,-38.094 42.346,-38.094l-0,0Zm-1.017,-37.416c-57.995,0 -94.049,36.562 -94.049,95.405c0,59.013 35.714,95.581 93.54,95.581c48.469,0 82.142,-23.474 89.967,-63.264l0.17,-1.193l-53.235,0l-0.339,0.848c-4.252,15.649 -17.515,24.661 -36.562,24.661c-26.363,0 -39.796,-20.919 -41.159,-40.814l133.675,0l0,-16.837c0,-60.036 -34.012,-94.388 -92.008,-94.388l0,0Z"/>
+<path d="M532.653,172.278l0,7.146c0,28.907 -22.79,42.007 -43.878,42.007c-17.515,0 -27.889,-6.977 -27.889,-18.708c0,-12.585 7.649,-18.538 28.059,-21.942l43.708,-8.503Zm-31.802,-103.739c-51.194,0 -80.276,21.597 -82.142,60.715l0,1.187l51.358,0l0,-1.018c1.532,-16.667 11.222,-24.322 30.615,-24.322c21.258,0 32.141,9.187 32.141,27.55l0,3.404l-60.545,11.053c-39.118,6.977 -60.715,27.381 -60.715,57.826c0,32.48 25.509,54.422 63.604,54.422l0.678,0c26.702,0 46.884,-10.029 60.206,-29.252l0,25.848l47.621,0l0,-114.797c0,-49.656 -26.357,-72.615 -82.82,-72.615l-0,0Z"/>
+<path d="M612.076,0l0,255.613l51.697,0l0,-52.381l23.129,-24.153l51.703,76.194l0.339,0.339l61.738,0l-74.832,-110.031l71.428,-73.3l-61.732,0l-71.773,72.615l0,-144.897l-51.697,0Z"/>
+<path d="M814.454,26.533l0,46.767l-0.339,40.644l0,83.335c0,41.328 18.03,60.715 56.633,60.715c14.117,0 28.913,-1.532 39.796,-3.912l0.848,-0.17l0,-42.855l-1.187,0.17c-7.146,1.526 -13.269,2.55 -20.749,2.55c-17.176,0 -23.813,-7.825 -23.813,-28.059l0,-70.75l45.749,0l0,-42.685l-45.749,0l0,-45.749l-51.188,0Z"/>
+<path d="M1020.744,108.335c30.784,0 41.668,28.737 41.668,55.44c0,26.872 -11.392,55.615 -41.668,55.615c-30.439,0 -41.322,-28.743 -41.322,-55.615c0,-26.702 10.883,-55.44 41.322,-55.44Zm0,-39.966c-58.673,0 -95.066,36.562 -95.066,95.405c0,59.013 36.393,95.581 95.066,95.581c58.843,0 95.411,-36.568 95.411,-95.581c0,-58.843 -36.738,-95.405 -95.411,-95.405Z"/>
+<path d="M1242.345,68.879c-29.761,0 -48.469,11.392 -59.521,36.907l0,-33.503l-49.323,0l0,183.331l51.533,0l0,-88.604c0,-31.293 16.322,-49.323 44.896,-49.323c6.462,0 12.755,0.17 18.878,0.684l1.193,0l0,-49.492l-7.655,0Z"/>
+</g>
+</svg>
+</h2>
+
+</section>
+<section id="agenda" class="slide level1 agenda-slide">
+  <h1 class="agenda-slide">Agenda</h1>
+  <table class="agenda-table">
+    <tbody>
+      <tr>
+        <th><strong>17:30</strong></th>
+        <td>Doors open</td>
+      </tr>
+      <tr>
+        <th><strong>18:00</strong></th>
+        <td>Event begins (🍕 pizza available)</td>
+      </tr>
+      <tr>
+        <th><strong>18:15</strong></th>
+        <td>PyData Helsinki intro</td>
+      </tr>
+      <tr>
+        <th><strong>18:20</strong></th>
+        <td>Reaktor intro</td>
+      </tr>
+      <tr>
+        <th><strong>18:30</strong></th>
+        <td>Ville Rantanen: <em>Bottling AI</em></td>
+      </tr>
+      <tr>
+        <th><strong>19:00</strong></th>
+        <td>🔮 PyData Helsinki Quiz</td>
+      </tr>
+      <tr>
+        <th><strong>19:15</strong></th>
+        <td>Break</td>
+      </tr>
+      <tr>
+        <th><strong>19:45</strong></th>
+        <td>Panel Discussion: <em>How to Land a (Data) Job</em></td>
+      </tr>
+      <tr>
+        <th><strong>20:30</strong></th>
+        <td>End of event</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section id="pydata-helsinki-1" class="slide level1">
+<h1>PyData Helsinki</h1>
+<p>PyData is a global network of users and developers of data analysis
+tools</p>
+<p>This means Pandas, NumPy, PySpark, etc — and also R, Julia, and other
+non-Python tools</p>
+<p>And statistics, neural networks, databases, visualization, and
+more</p>
+<p>Focus on open source tools and their real-world use</p>
+</section>
+<section id="we-need-venues" class="slide level1">
+  <h1>This will be the last PyData Helsinki</h1>
+  <p class="fragment ">unless we find a venue for the next one</p>
+  <div class="fragment callout">
+  <p>Both PyData Helsinki and Helsinki Python are looking for venues for future meetups</p>
+  <p style="margin-top: 12pt">👉 Ask your employer to host a meetup! 👈</p>
+  </div>
+</section>
+<section id="put-yourself-forward-as-speaker" class="slide level1">
+<h1>Offer your venue or talk</h1>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Email us at <strong>pydata-helsinki@<br>googlegroups.com</strong></p>
+<p><img data-src="assets/qrcode.email.png" class="qr"
+style="width:5em;height:5em" /></p>
+</div><div class="column" style="width:40%;">
+<p>or message us on Discord</p>
+<p><img data-src="assets/qrcode.discord.png" class="qr"
+style="width:5em;height:5em" /></p>
+</div>
+</div>
+</section>
+<section id="pydata-helsinki-organisers" class="slide level1">
+<h1>PyData Helsinki organisers</h1>
+<ul>
+<li>Cal Paterson</li>
+<li>Daniel Vahla</li>
+<li>Hugo van Kemenade</li>
+<li>Jouni Seppänen</li>
+<li>Niko Föhr</li>
+<li>Teemu Säilynoja</li>
+</ul>
+</section>
+<section id="meetup-calendar" class="slide level1 calendar-slide">
+<h1 class="calendar-slide">Meetup Calendar</h1>
+<div class="columns">
+<div class="column" style="width:65%;">
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: left;"><strong>9 Dec</strong></td>
+      <td style="text-align: left;">Helsinki Python Christmas Party</td>
+    </tr>
+    <tr>
+      <td style="text-align: left;"><strong>11 Dec</strong></td>
+      <td style="text-align: left;">Archipylago (Turku)</td>
+    </tr>
+</tbody>
+</table>
+</div><div class="column" style="width:35%;">
+<ul>
+<li>See <strong>techtrib.es</strong> for Helsinki tech events
+<div style="">
+<img data-src="assets/qrcode.tribes.png" class="qr"
+style="width:6em;height:6em" />
+</div></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="social-media" class="slide level1">
+<h1>Social media</h1>
+<ul>
+<li>Discord:
+<strong>https://helsinki-python.github.io/discord</strong></li>
+<li>Email: <strong>pydata-helsinki@googlegroups.com</strong></li>
+<li>Fediverse: <strong><span class="citation"
+data-cites="pydata_helsinki">@pydata_helsinki</span><span
+class="citation"
+data-cites="fosstodon.org">@fosstodon.org</span></strong></li>
+</ul>
+<p><img data-src="assets/qrcode.fosstodon.png" class="qr"
+style="width:5em;height:5em" /></p>
+</section>
+<section id="after-party" class="slide level1">
+<h1>After the Event</h1>
+<h2>Sauna (20:30 onwards)</h2>
+<ul>
+<li>Small sauna for women</li>
+<li>Large sauna for men</li>
+<li>Take a towel from the cabinet</li>
+<li>Return towels to the towel bins</li>
+<li><strong>No glass containers in the sauna!</strong></li>
+</ul>
+</section>
+<section id="designated-pub" class="slide level1">
+<h1>Designated Pub</h1>
+<div class="center"><strong>Belge</strong>
+<p>Kluuvikatu 5</p></div>
+</section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@5/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@5/plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@5/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

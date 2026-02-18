@@ -102,6 +102,25 @@ a:hover {
     border-radius: 0;
 }
 
+nav {
+    margin-bottom: 1rem;
+}
+
+table {
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0.25rem 1rem 0.25rem 0;
+    vertical-align: top;
+}
+
+td:first-child {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
 footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
